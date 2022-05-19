@@ -1,4 +1,4 @@
-RSpec.describe Rating, type: :model do
+RSpec.describe Comment, type: :model do
   describe 'Products database Table check' do
     it { is_expected.to have_db_column(:body).of_type(:string) }
   end
