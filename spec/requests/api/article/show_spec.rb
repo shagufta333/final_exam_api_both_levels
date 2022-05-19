@@ -12,5 +12,8 @@ RSpec.describe 'GET /api/articles/:id', type: :request do
     it 'is expected to return the correct article' do
       expect(response_json['article']['id']).to eq article.id
     end
+     it 'is expected to return a comment for the article' do
+      expect(response_json['article']['comment']).to eq 'very good'
+    end
   end
 end
