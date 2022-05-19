@@ -4,13 +4,12 @@ class Api::ArticlesController < ApplicationController
     render json: { articles: articles }
   end
 
-    def show
-    article = Article.find(params['id'])
+  def show
+    article = Article.find(params["id"])
     response = serialize_comments(article)
-    binding.pry
     render json: { article: response }
   rescue StandardError
-    render json: { error: 'No such article exists' }, status: 422
+    render json: { error: "No such article exists" }, status: 422
   end
 
   private
