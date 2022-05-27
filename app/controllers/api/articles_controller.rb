@@ -5,18 +5,18 @@ class Api::ArticlesController < ApplicationController
   end
 
   def show
-    article = Article.find(params["id"])
+    article = Article.find(params['id'])
     response = serialize_comments(article)
     render json: { article: response }
   rescue StandardError
-    render json: { error: "No such article exists" }, status: 422
+    render json: { error: 'No such article exists' }, status: 422
   end
 
   private
 
   def serialize_comments(article)
     response = article.as_json
-    response[:comment] = artcile.comment.as_json
+    response['comments'] = article.comments.as_json
     response
   end
 end
